@@ -20,7 +20,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import MyProfile from "./pages/MyProfile";
 import Checkout from "./pages/Checkout";
 import MyOrders from "./pages/MyOrders";
-import ReauthenticateUser from "./pages/reauthenticateUser";
+import ReauthenticateUser from "./pages/ReauthenticateUser";
 // Email redirects
 import AuthRedirect from "./components/AuthRedirect";
 import ConfirmEmail from "./pages/ConfirmEmail";
