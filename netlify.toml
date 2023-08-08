@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/auth/*"
+  to = "/index.html"
+  status = 200
