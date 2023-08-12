@@ -6,7 +6,7 @@ import Layout from "@components/Layout";
 // Hooks
 import useAuth from "../../hooks/useAuth";
 // Firebase
-import { signIn } from "../../firebase/Firestore";
+import { signIn } from "@servicesAuth";
 
 const Login = () => {
   const { setToken } = useAuth();

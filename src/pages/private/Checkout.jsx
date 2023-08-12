@@ -10,7 +10,7 @@ import useCart from "../../hooks/useCart";
 // Helpers
 import { formatDate } from "../../helpers/helpers";
 // Firebase
-import { sendOrder } from "../../firebase/Firestore";
+import { sendOrder } from "@servicesFirestore";
 
 const Checkout = () => {
   const navigate = useNavigate();

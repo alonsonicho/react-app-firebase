@@ -10,6 +10,8 @@ export default defineConfig({
       '@privatePages': '/src/pages/private',
       '@components': '/src/components',
       '@services': '/src/services',
+      '@servicesAuth': '/src/services/servicesAuth',
+      '@servicesFirestore': '/src/services/servicesFirestore',
     }
   }
 })

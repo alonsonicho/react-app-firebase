@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signOff } from "../firebase/Firestore";
+import { signOff } from "@servicesAuth";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {

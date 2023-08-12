@@ -4,7 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Layout from "@components/Layout";
 import Alert from "@components/Alert";
 // Firebase
-import { confirmEmail } from "../../firebase/Firestore";
+import { confirmEmail } from "@servicesAuth";
 
 const ConfirmEmail = () => {
   const [searchParams] = useSearchParams();

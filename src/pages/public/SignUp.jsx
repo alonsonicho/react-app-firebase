@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { createUser } from "../../firebase/Firestore";
+import { createUser } from "@servicesAuth";
 // Components
 import Layout from "@components/Layout";
 import Alert from "@components/Alert";

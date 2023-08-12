@@ -6,7 +6,7 @@ import Layout from "@components/Layout";
 // Hooks
 import useAuth from "../../hooks/useAuth";
 // Firebase functions
-import { reauthenticateUser } from "../../firebase/Firestore"; // Reauthenticate - Change password / Change email
+import { reauthenticateUser } from "@servicesAuth"; // Reauthenticate - Change password / Change email
 
 const ReauthenticateUser = () => {
   const navigate = useNavigate();

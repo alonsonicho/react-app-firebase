@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Layout from "@components/Layout";
 import Alert from "@components/Alert";
 // Firebase
-import { resetPassword } from "../../firebase/Firestore";
+import { resetPassword } from "@servicesAuth";
 
 const PasswordRecoverySearch = () => {
   const [email, setEmail] = useState("");

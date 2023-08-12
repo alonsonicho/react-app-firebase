@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import Layout from "@components/Layout";
 import Alert from "@components/Alert";
 // Firebase
-import { confirmPassword } from "../../firebase/Firestore";
+import { confirmPassword } from "@servicesAuth";
 
 const ResetPassword = () => {
   const navigate = useNavigate();

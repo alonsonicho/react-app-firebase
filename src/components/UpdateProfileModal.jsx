@@ -6,7 +6,7 @@ import Alert from "./Alert";
 // Hooks
 import useAuth from "../hooks/useAuth";
 // Firebase
-import { updateDisplayNameProfile, updateEmailProfile, updatePasswordProfile, signOff } from "../firebase/Firestore";
+import { updateDisplayNameProfile, updateEmailProfile, updatePasswordProfile, signOff } from "@servicesAuth";
 
 const UpdateProfileModal = ({ setShowModal, dataModal }) => {
   const navigate = useNavigate();

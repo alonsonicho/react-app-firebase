@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDataItemDetail } from "../../firebase/Firestore";
+import { getDataItemDetail } from "@servicesFirestore";
 // Components
 import Layout from "@components/Layout";
 import AddToCartModal from "@components/AddToCartModal";

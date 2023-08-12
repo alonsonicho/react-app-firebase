@@ -5,7 +5,8 @@
             "@publicPages": ["./src/pages/public/*"],
             "@privatePages": ["./src/pages/private/*"],
             "@components": ["./src/components/*"],
-            "@services": ["./src/services/*"],
+            "@servicesAuth": ["./src/services/servicesAuth.js"],
+            "@servicesFirestore": ["./src/services/servicesFirestore.js"],
         }
     }
 }

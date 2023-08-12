@@ -5,7 +5,7 @@ import Layout from "@components/Layout";
 import CTAs from "@components/CTAs";
 import CardItem from "@components/CardItem";
 // Fibase
-import { getDataCollections } from "../../firebase/Firestore";
+import { getDataCollections } from "@servicesFirestore";
 import Spinner from "@components/Spinner";
 
 const Index = () => {

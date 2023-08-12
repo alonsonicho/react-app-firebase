@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Layout from "@components/Layout";
 import CardItem from "@components/CardItem";
 // Firebase
-import { getDataCategories } from "../../firebase/Firestore";
+import { getDataCategories } from "@servicesFirestore";
 import Spinner from "@components/Spinner";
 
 const Categories = () => {

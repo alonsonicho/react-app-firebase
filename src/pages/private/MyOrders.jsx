@@ -6,7 +6,7 @@ import Spinner from "@components/Spinner";
 // Hooks
 import useAuth from "../../hooks/useAuth";
 // Firebase
-import { getOrders } from "../../firebase/Firestore";
+import { getOrders } from "@servicesFirestore";
 
 const MyOrders = () => {
   const { auth } = useAuth();
