@@ -26,30 +26,32 @@ import AuthRedirect from "./components/AuthRedirect";
 import ConfirmEmail from "@privatePages/ConfirmEmail";
 import ResetPassword from "@privatePages/ResetPassword";
 
+import { PublicRoutes, EmailRedirectsRoutes, PrivateRoutes } from "@routes/routes";
+
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
           <ToastContainer transition={Slide} />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/category/:nameCategory" element={<Categories />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/passwordRecoverySearch" element={<PasswordRecoverySearch />} />
-            <Route path="/cart" element={<CartItems />} />
-            <Route path="*" element={<Error404 />} />
+            <Route path={PublicRoutes.HOME} element={<Index />} />
+            <Route path={PublicRoutes.PRODUCT_DETAIL} element={<ProductDetail />} />
+            <Route path={PublicRoutes.CATEGORIES} element={<Categories />} />
+            <Route path={PublicRoutes.LOGIN} element={<Login />} />
+            <Route path={PublicRoutes.SIGN_UP} element={<SignUp />} />
+            <Route path={PublicRoutes.PASSWORD_RECOVERY_SEARCH} element={<PasswordRecoverySearch />} />
+            <Route path={PublicRoutes.CART_ITEMS} element={<CartItems />} />
+            <Route path={PublicRoutes.NOT_FOUND} element={<Error404 />} />
             {/* Email redirects */}
-            <Route path="/auth" element={<AuthRedirect />} />
-            <Route path="/confirm-email" element={<ConfirmEmail />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path={EmailRedirectsRoutes.AUTH_REDIRECT} element={<AuthRedirect />} />
+            <Route path={EmailRedirectsRoutes.CONFIRM_EMAIL} element={<ConfirmEmail />} />
+            <Route path={EmailRedirectsRoutes.RESET_PASSWORD} element={<ResetPassword />} />
             {/* Privates routes */}
-            <Route path="/" element={<PrivateRoute />}>
-              <Route path="profile" element={<MyProfile />} />
-              <Route path="checkout" element={<Checkout />} />
-              <Route path="orders" element={<MyOrders />} />
-              <Route path="reauth" element={<ReauthenticateUser />} />
+            <Route element={<PrivateRoute />}>
+              <Route path={PrivateRoutes.PROFILE} element={<MyProfile />} />
+              <Route path={PrivateRoutes.CHECKOUT} element={<Checkout />} />
+              <Route path={PrivateRoutes.ORDERS} element={<MyOrders />} />
+              <Route path={PrivateRoutes.REAUTHENTICATION} element={<ReauthenticateUser />} />
             </Route>
           </Routes>
       </CartProvider>

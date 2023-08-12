@@ -7,6 +7,7 @@ import Alert from "./Alert";
 import useAuth from "../hooks/useAuth";
 // Firebase
 import { updateDisplayNameProfile, updateEmailProfile, updatePasswordProfile, signOff } from "@servicesAuth";
+import { PublicRoutes } from "@routes/routes";
 
 const UpdateProfileModal = ({ setShowModal, dataModal }) => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const UpdateProfileModal = ({ setShowModal, dataModal }) => {
         window.localStorage.removeItem("token");
         setShowModal(false);
         setReauth(true);
-        navigate("/login");
+        navigate(PublicRoutes.LOGIN);
       };
 
       // Change password

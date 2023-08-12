@@ -4,6 +4,7 @@ import { createUser } from "@servicesAuth";
 // Components
 import Layout from "@components/Layout";
 import Alert from "@components/Alert";
+import { PublicRoutes } from "@routes/routes";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -97,7 +98,7 @@ const SignUp = () => {
                 </form>
                 <p className="mt-6 text-sm text-center text-gray-800 font-semibold">
                   ¿Ya tienes una cuenta?{" "}
-                  <Link to="/login" className="text-gray-600 border-b border-gray-600 focus:outline-none">
+                  <Link to={PublicRoutes.LOGIN} className="text-gray-600 border-b border-gray-600 focus:outline-none">
                     Inicia Sesión
                   </Link>
                 </p>

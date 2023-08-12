@@ -7,6 +7,7 @@ import Layout from "@components/Layout";
 import useAuth from "../../hooks/useAuth";
 // Firebase functions
 import { reauthenticateUser } from "@servicesAuth"; // Reauthenticate - Change password / Change email
+import { PrivateRoutes } from "@routes/routes";
 
 const ReauthenticateUser = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const ReauthenticateUser = () => {
       const isAuthenticated = await reauthenticateUserActive(email, password);
       if (isAuthenticated) {
         setReauth(false);
-        navigate("/profile");
+        navigate(PrivateRoutes.PROFILE);
       }
     } catch (error) {
       setAlert({ msg: error.code, error: true });

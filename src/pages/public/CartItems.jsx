@@ -6,6 +6,7 @@ import EmptyCart from "@components/EmptyCart";
 // Hooks
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
+import { PublicRoutes } from "@routes/routes";
 
 const CartItems = () => {
   const { auth } = useAuth();
@@ -27,7 +28,7 @@ const CartItems = () => {
         <div className="min-h-screen w-full sm:w-5/6 py-5 mx-auto">
           <div className="px-5">
             <div className="mb-2">
-              <Link to="/" className="flex items-center">
+              <Link to={PublicRoutes.HOME} className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 24 24">
                   <path fill="#fff" d="M0 0H24V24H0z"></path>
                   <path

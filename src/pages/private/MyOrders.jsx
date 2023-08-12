@@ -7,6 +7,7 @@ import Spinner from "@components/Spinner";
 import useAuth from "../../hooks/useAuth";
 // Firebase
 import { getOrders } from "@servicesFirestore";
+import { PublicRoutes } from "@routes/routes";
 
 const MyOrders = () => {
   const { auth } = useAuth();
@@ -38,7 +39,7 @@ const MyOrders = () => {
         <div className="flex flex-col items-center justify-center h-96">
           <p className="font-semibold text-2xl mb-3">¡Haz tu primera compra!</p>
           <p className="font-semibold text-xl mb-5">Aquí podrás ver tus compras y hacer el seguimiento de tus envíos.</p>
-          <Link to="/" className="text-gray-600 font-semibold border-b border-gray-600 hover:text-gray-400 hover:border-gray-400 transition-colors">
+          <Link to={PublicRoutes.HOME} className="text-gray-600 font-semibold border-b border-gray-600 hover:text-gray-400 hover:border-gray-400 transition-colors">
             Ver ofertas del día
           </Link>
         </div>
@@ -72,7 +73,7 @@ const MyOrders = () => {
                       </div>
                       <div className="w-full sm:w-2/5 flex items-center md:mr-10 mt-2 sm:mt-0">
                         <div className="mx-auto">
-                          <Link to={`/product/${prod.id}`} className="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white text-sm block text-center">
+                          <Link to={`${PublicRoutes.PRODUCT}/${prod.id}`} className="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white text-sm block text-center">
                             Comprar de nuevo
                           </Link>
                         </div>

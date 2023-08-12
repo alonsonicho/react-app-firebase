@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOff } from "@servicesAuth";
 import useAuth from "../hooks/useAuth";
+import { PrivateRoutes, PublicRoutes } from "@routes/routes";
 
 const Navbar = () => {
   const { auth, setAuth, setToken, setReauth } = useAuth();
@@ -26,14 +27,14 @@ const Navbar = () => {
       setReauth(true);
       setToken("");
       window.localStorage.removeItem("token");
-      navigate("/");
+      navigate(PublicRoutes.HOME);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <>
+    <header>
       <div className="bg-gray-100 h-full w-full border-b z-30">
         {/* Code block starts */}
         <nav className="shadow xl:block hidden">
@@ -54,7 +55,7 @@ const Navbar = () => {
                 <div className="md:mr-6 xl:mr-16">
                   <ul className="flex">
                     <li>
-                      <Link to="/" className="flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none transition duration-150 ease-in-out">
+                      <Link to={PublicRoutes.HOME} className="flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none transition duration-150 ease-in-out">
                         <span className="mr-2">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -128,7 +129,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/poleras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/poleras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Poleras</span>{" "}
                                 </Link>
                               </li>
@@ -136,7 +137,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/pantalones" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/pantalones`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Pantalones</span>{" "}
                                 </Link>
                               </li>
@@ -144,7 +145,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/gorras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/gorras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Gorras</span>{" "}
                                 </Link>
                               </li>
@@ -158,7 +159,7 @@ const Navbar = () => {
                 <div className="hidden xl:flex items-center">
                   {/* BUTTON CART */}
                   <div className="relative md:mr-6 my-2">
-                    <Link to="/cart">
+                    <Link to={PublicRoutes.CART_ITEMS}>
                       <div className="focus:outline-none bg-gray-100 border-gray-300 border transition duration-150 ease-in-out hover:bg-gray-300 rounded text-gray-600 px-5 py-2 text-xs">
                         <svg className="fill-stroke" width={26} height={26} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -202,7 +203,7 @@ const Navbar = () => {
                                 <circle cx={12} cy={7} r={4} />
                                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                               </svg>
-                              <Link to="/login" className="ml-2">
+                              <Link to={PublicRoutes.LOGIN} className="ml-2">
                                 Iniciar Sesion
                               </Link>
                             </li>
@@ -225,7 +226,7 @@ const Navbar = () => {
                                 <circle cx={12} cy={7} r={4} />
                                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                               </svg>
-                              <Link to="/profile" className="ml-2">
+                              <Link to={PrivateRoutes.PROFILE} className="ml-2">
                                 Mi perfil
                               </Link>
                             </li>
@@ -247,7 +248,7 @@ const Navbar = () => {
                               <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                               <circle cx={12} cy={12} r={3} />
                             </svg>
-                            <Link to="/orders" className="ml-2">
+                            <Link to={PrivateRoutes.ORDERS} className="ml-2">
                               Mis pedidos
                             </Link>
                           </li>
@@ -330,7 +331,7 @@ const Navbar = () => {
                 <div className="hidden md:flex md:mr-6 xl:mr-16">
                   <ul className="flex">
                     <li>
-                      <Link to="/" className="flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none transition duration-150 ease-in-out">
+                      <Link to={PublicRoutes.HOME} className="flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none transition duration-150 ease-in-out">
                         <span className="mr-2">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -404,7 +405,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/poleras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/poleras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Poleras</span>{" "}
                                 </Link>
                               </li>
@@ -412,7 +413,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/pantalones" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/pantalones`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Pantalones</span>{" "}
                                 </Link>
                               </li>
@@ -420,7 +421,7 @@ const Navbar = () => {
                                 className="relative cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none"
                                 onClick={() => setShowCategories(false)}
                               >
-                                <Link to="/category/gorras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                <Link to={`${PublicRoutes.CATEGORIE}/gorras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                   <span className="flex-1">Gorras</span>{" "}
                                 </Link>
                               </li>
@@ -433,7 +434,7 @@ const Navbar = () => {
                 </div>
                 {/*  */}
                 <div className="relative mr-6">
-                  <Link to="/cart">
+                  <Link to={PublicRoutes.CART_ITEMS}>
                     <div className="focus:outline-none bg-gray-100 border-gray-300 border transition duration-150 ease-in-out hover:bg-gray-300 rounded text-gray-600 px-5 py-2 text-xs">
                       <svg className="fill-stroke" width={26} height={26} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -569,7 +570,7 @@ const Navbar = () => {
                                     setShowCategories(false), setShow(!show);
                                   }}
                                 >
-                                  <Link to="/category/poleras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                  <Link to={`${PublicRoutes.CATEGORIE}/poleras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                     <span className="text-gray-800 xl:text-base md:text-2xl text-base ml-3">{"» "}Poleras</span>{" "}
                                   </Link>
                                 </li>
@@ -579,7 +580,7 @@ const Navbar = () => {
                                     setShowCategories(false), setShow(!show);
                                   }}
                                 >
-                                  <Link to="/category/pantalones" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                  <Link to={`${PublicRoutes.CATEGORIE}/pantalones`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                     <span className="text-gray-800 xl:text-base md:text-2xl text-base ml-3">{"» "}Pantalones</span>{" "}
                                   </Link>
                                 </li>
@@ -589,7 +590,7 @@ const Navbar = () => {
                                     setShowCategories(false), setShow(!show);
                                   }}
                                 >
-                                  <Link to="/category/gorras" className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
+                                  <Link to={`${PublicRoutes.CATEGORIE}/gorras`} className="px-4 py-1 flex w-full items-center  no-underline  text-sm leading-3">
                                     <span className="text-gray-800 xl:text-base md:text-2xl text-base ml-3">{"» "}Gorras</span>{" "}
                                   </Link>
                                 </li>
@@ -600,7 +601,7 @@ const Navbar = () => {
                       </li>
 
                       <li className="py-3 hover:bg-gray-200 transition-colors">
-                        <Link to={auth.displayName ? "/profile" : "/login"} className="flex items-center" onClick={() => setShow(!show)}>
+                        <Link to={auth.displayName ? PrivateRoutes.PROFILE : PublicRoutes.LOGIN} className="flex items-center" onClick={() => setShow(!show)}>
                           <div className="w-6 h-6 md:w-8 md:h-8 text-gray-800">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -623,7 +624,7 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li className="py-3 hover:bg-gray-200 transition-colors">
-                        <Link to={auth.displayName ? "/orders" : "/login"} onClick={() => setShow(!show)} className="flex items-center justify-between">
+                        <Link to={auth.displayName ? PrivateRoutes.ORDERS : PublicRoutes.LOGIN} onClick={() => setShow(!show)} className="flex items-center justify-between">
                           <div className="flex items-center">
                             <div className="w-6 h-6 md:w-8 md:h-8 text-gray-800">
                               <svg
@@ -647,7 +648,7 @@ const Navbar = () => {
                       {auth.displayName && (
                         <li className="py-3 hover:bg-gray-200 transition-colors">
                           <Link
-                            to="/"
+                            to={PublicRoutes.HOME}
                             onClick={() => {
                               closeSession();
                               setShow(!show);
@@ -702,7 +703,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
-    </>
+    </header>
   );
 };
 

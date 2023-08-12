@@ -7,6 +7,7 @@ import Layout from "@components/Layout";
 import useAuth from "../../hooks/useAuth";
 // Firebase
 import { signIn } from "@servicesAuth";
+import { PublicRoutes } from "@routes/routes";
 
 const Login = () => {
   const { setToken } = useAuth();
@@ -43,7 +44,7 @@ const Login = () => {
       localStorage.setItem("token", accessToken);
       setToken(accessToken);
 
-      navigate("/");
+      navigate(PublicRoutes.HOME);
     } catch (error) {
       setAlert({ msg: error.code, error: true });
     }
@@ -84,7 +85,7 @@ const Login = () => {
                       <label htmlFor="password" className="text-sm text-gray-800 font-bold">
                         Contraseña
                       </label>
-                      <Link to="/passwordRecoverySearch" className="text-sm font-semibold text-gray-400 focus:text-gray-500 hover:text-gray-500 hover:underline underline-offset-4">
+                      <Link to={PublicRoutes.PASSWORD_RECOVERY_SEARCH} className="text-sm font-semibold text-gray-400 focus:text-gray-500 hover:text-gray-500 hover:underline underline-offset-4">
                         ¿Olvidaste tu contraseña?
                       </Link>
                     </div>
@@ -111,7 +112,7 @@ const Login = () => {
 
                 <p className="mt-6 text-sm text-center text-gray-800 font-semibold">
                   ¿Aún no tienes una cuenta?{" "}
-                  <Link to="/signUp" className="text-gray-600 border-b border-gray-600 focus:outline-none">
+                  <Link to={PublicRoutes.SIGN_UP} className="text-gray-600 border-b border-gray-600 focus:outline-none">
                     Registrate
                   </Link>
                 </p>

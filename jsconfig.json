@@ -7,6 +7,7 @@
             "@components": ["./src/components/*"],
             "@servicesAuth": ["./src/services/servicesAuth.js"],
             "@servicesFirestore": ["./src/services/servicesFirestore.js"],
+            "@routes/*": ["./src/routes/*"],
         }
     }
 }

@@ -12,6 +12,7 @@ export default defineConfig({
       '@services': '/src/services',
       '@servicesAuth': '/src/services/servicesAuth',
       '@servicesFirestore': '/src/services/servicesFirestore',
+      '@routes': ['/src/routes'],
     }
   }
 })

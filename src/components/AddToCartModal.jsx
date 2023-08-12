@@ -1,3 +1,4 @@
+import { PublicRoutes } from "@routes/routes";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -41,14 +42,14 @@ const AddToCartModal = ({ setShowModal }) => {
           </div>
           <div className="flex flex-col sm:flex-row mt-5 sm:mt-6">
             <Link
-              to="/"
+              to={PublicRoutes.HOME}
               onClick={() => setShowModal(false)}
               className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm sm:mr-2 mb-3"
             >
               Seguir comprando
             </Link>
             <Link
-              to="/cart"
+              to={PublicRoutes.CART_ITEMS}
               onClick={() => setShowModal(false)}
               className="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-gray-800 text-base font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 sm:text-sm sm:ml-2 mb-3"
             >

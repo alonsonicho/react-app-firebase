@@ -6,9 +6,7 @@ import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <Navbar />
       <main>
         {children}
       </main>

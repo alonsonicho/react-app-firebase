@@ -6,6 +6,7 @@ import Layout from "@components/Layout";
 import AddToCartModal from "@components/AddToCartModal";
 // Hooks
 import useCart from "../../hooks/useCart";
+import { PublicRoutes } from "@routes/routes";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -123,7 +124,7 @@ const ProductDetail = () => {
           <nav aria-label="Breadcrumb">
             <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               <li>
-                <Link to="/" className="mr-2 text-gray-500 flex items-center">
+                <Link to={PublicRoutes.HOME} className="mr-2 text-gray-500 flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 24 24">
                     <path fill="#fff" d="M0 0H24V24H0z"></path>
                     <path

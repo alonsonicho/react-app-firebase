@@ -5,6 +5,7 @@ import Layout from "@components/Layout";
 import UpdateProfileModal from "@components/UpdateProfileModal";
 // Hooks
 import useAuth from "../../hooks/useAuth";
+import { PrivateRoutes } from "@routes/routes";
 
 const MyProfile = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const MyProfile = () => {
 
   const handleUpdateEmailClick = () => {
     if (reauth) {
-      navigate("/reauth");
+      navigate(PrivateRoutes.REAUTHENTICATION);
     } else {
       typeModal("email", "Correo electronico");
       setShowModal(true);
@@ -34,7 +35,7 @@ const MyProfile = () => {
 
   const handleUpdatePasswordClick = () => {
     if (reauth) {
-      navigate("/reauth");
+      navigate(PrivateRoutes.REAUTHENTICATION);
     } else {
       typeModal("password", "Contraseña");
       setShowModal(true);
