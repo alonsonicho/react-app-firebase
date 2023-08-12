@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
 // Firebase
-import { confirmPassword } from "../firebase/Firestore";
+import { confirmPassword } from "../../firebase/Firestore";
 
 const ResetPassword = () => {
   const navigate = useNavigate();

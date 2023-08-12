@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
+import Layout from "@components/Layout";
 
 const Error404 = () => {
   return (

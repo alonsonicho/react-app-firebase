@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getDataItemDetail } from "../firebase/Firestore";
+import { getDataItemDetail } from "../../firebase/Firestore";
 // Components
-import Layout from "../components/Layout";
-import AddToCartModal from "../components/AddToCartModal";
+import Layout from "@components/Layout";
+import AddToCartModal from "@components/AddToCartModal";
 // Hooks
-import useCart from "../hooks/useCart";
+import useCart from "../../hooks/useCart";
 
 const ProductDetail = () => {
   const { id } = useParams();

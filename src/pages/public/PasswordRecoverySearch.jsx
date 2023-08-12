@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
 // Firebase
-import { resetPassword } from "../firebase/Firestore";
+import { resetPassword } from "../../firebase/Firestore";
 
 const PasswordRecoverySearch = () => {
   const [email, setEmail] = useState("");

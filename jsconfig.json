@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@publicPages": ["./src/pages/public/*"],
+            "@privatePages": ["./src/pages/private/*"],
+            "@components": ["./src/components/*"],
+            "@services": ["./src/services/*"],
+        }
+    }
+}

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import EmptyCart from "../components/EmptyCart";
+import Layout from "@components/Layout";
+import EmptyCart from "@components/EmptyCart";
 // Hooks
-import useAuth from "../hooks/useAuth";
-import useCart from "../hooks/useCart";
+import useAuth from "../../hooks/useAuth";
+import useCart from "../../hooks/useCart";
 
 const CartItems = () => {
   const { auth } = useAuth();

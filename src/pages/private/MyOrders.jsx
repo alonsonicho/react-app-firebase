@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Spinner from "../components/Spinner";
+import Layout from "@components/Layout";
+import Spinner from "@components/Spinner";
 // Hooks
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 // Firebase
-import { getOrders } from "../firebase/Firestore";
+import { getOrders } from "../../firebase/Firestore";
 
 const MyOrders = () => {
   const { auth } = useAuth();

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,30 +7,29 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/AuthProvider";
 import { CartProvider } from "./context/CartProvider";
 
-import Index from "./pages/Index";
-import ProductDetail from "./pages/ProductDetail";
-import Categories from "./pages/Categories";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import PasswordRecoverySearch from "./pages/PasswordRecoverySearch";
-import CartItems from "./pages/CartItems";
-import Error404 from "./pages/Error404";
+import Index from "@publicPages/Index";
+import ProductDetail from "@publicPages/ProductDetail";
+import Categories from "@publicPages/Categories";
+import Login from "@publicPages/Login";
+import SignUp from "@publicPages/SignUp";
+import PasswordRecoverySearch from "@publicPages/PasswordRecoverySearch";
+import CartItems from "@publicPages/CartItems";
+import Error404 from "@publicPages/Error404";
 // Private Routes
 import PrivateRoute from "./components/PrivateRoute";
-import MyProfile from "./pages/MyProfile";
-import Checkout from "./pages/Checkout";
-import MyOrders from "./pages/MyOrders";
-import ReauthenticateUser from "./pages/ReauthenticateUser";
+import MyProfile from "@privatePages/MyProfile";
+import Checkout from "@privatePages/Checkout";
+import MyOrders from "@privatePages/MyOrders";
+import ReauthenticateUser from "@privatePages/ReauthenticateUser";
 // Email redirects
 import AuthRedirect from "./components/AuthRedirect";
-import ConfirmEmail from "./pages/ConfirmEmail";
-import ResetPassword from "./pages/ResetPassword";
+import ConfirmEmail from "@privatePages/ConfirmEmail";
+import ResetPassword from "@privatePages/ResetPassword";
 
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <BrowserRouter>
           <ToastContainer transition={Slide} />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -53,7 +52,6 @@ function App() {
               <Route path="reauth" element={<ReauthenticateUser />} />
             </Route>
           </Routes>
-        </BrowserRouter>
       </CartProvider>
     </AuthProvider>
   );

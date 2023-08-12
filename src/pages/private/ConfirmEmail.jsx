@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
 // Firebase
-import { confirmEmail } from "../firebase/Firestore";
+import { confirmEmail } from "../../firebase/Firestore";
 
 const ConfirmEmail = () => {
   const [searchParams] = useSearchParams();

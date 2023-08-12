@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
-import EmptyCart from "../components/EmptyCart";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
+import EmptyCart from "@components/EmptyCart";
 // Hooks
-import useAuth from "../hooks/useAuth";
-import useCart from "../hooks/useCart";
+import useAuth from "../../hooks/useAuth";
+import useCart from "../../hooks/useCart";
 // Helpers
-import { formatDate } from "../helpers/helpers";
+import { formatDate } from "../../helpers/helpers";
 // Firebase
-import { sendOrder } from "../firebase/Firestore";
+import { sendOrder } from "../../firebase/Firestore";
 
 const Checkout = () => {
   const navigate = useNavigate();
