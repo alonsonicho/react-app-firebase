@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Alert from "@components/Alert";
 import Layout from "@components/Layout";
 // Hooks
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 // Firebase functions
 import { reauthenticateUser } from "@servicesAuth"; // Reauthenticate - Change password / Change email
 import { PrivateRoutes } from "@routes/routes";

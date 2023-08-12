@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Alert from "@components/Alert";
 import Layout from "@components/Layout";
 // Hooks
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 // Firebase
 import { signIn } from "@servicesAuth";
 import { PublicRoutes } from "@routes/routes";

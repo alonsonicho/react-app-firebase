@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "@components/Layout";
 import UpdateProfileModal from "@components/UpdateProfileModal";
 // Hooks
-import useAuth from "../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { PrivateRoutes } from "@routes/routes";
 
 const MyProfile = () => {

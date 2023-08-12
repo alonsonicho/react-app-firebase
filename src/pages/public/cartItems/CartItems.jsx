@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
 import EmptyCart from "@components/EmptyCart";
 // Hooks
-import useAuth from "../../hooks/useAuth";
-import useCart from "../../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 import { PublicRoutes } from "@routes/routes";
 
 const CartItems = () => {

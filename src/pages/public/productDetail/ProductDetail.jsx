@@ -5,7 +5,7 @@ import { getDataItemDetail } from "@servicesFirestore";
 import Layout from "@components/Layout";
 import AddToCartModal from "@components/AddToCartModal";
 // Hooks
-import useCart from "../../hooks/useCart";
+import useCart from "../../../hooks/useCart";
 import { PublicRoutes } from "@routes/routes";
 
 const ProductDetail = () => {

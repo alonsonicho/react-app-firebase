@@ -7,24 +7,24 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/AuthProvider";
 import { CartProvider } from "./context/CartProvider";
 
-import Index from "@publicPages/Index";
-import ProductDetail from "@publicPages/ProductDetail";
-import Categories from "@publicPages/Categories";
-import Login from "@publicPages/Login";
-import SignUp from "@publicPages/SignUp";
-import PasswordRecoverySearch from "@publicPages/PasswordRecoverySearch";
-import CartItems from "@publicPages/CartItems";
-import Error404 from "@publicPages/Error404";
+import Index from "@publicPages/index/Index";
+import ProductDetail from "@publicPages/productDetail/ProductDetail";
+import Categories from "@publicPages/categories/Categories";
+import Login from "@publicPages/login/Login";
+import SignUp from "@publicPages/signUp/SignUp";
+import PasswordRecoverySearch from "@publicPages/passwordRecovery/PasswordRecoverySearch";
+import CartItems from "@publicPages/cartItems/CartItems";
+import Error404 from "@publicPages/notFound/Error404";
 // Private Routes
 import PrivateRoute from "./components/PrivateRoute";
-import MyProfile from "@privatePages/MyProfile";
-import Checkout from "@privatePages/Checkout";
-import MyOrders from "@privatePages/MyOrders";
-import ReauthenticateUser from "@privatePages/ReauthenticateUser";
+import MyProfile from "@privatePages/myProfile/MyProfile";
+import Checkout from "@privatePages/checkout/Checkout";
+import MyOrders from "@privatePages/myOrders/MyOrders";
+import ReauthenticateUser from "@privatePages/reauthenticateUser/ReauthenticateUser";
 // Email redirects
 import AuthRedirect from "./components/AuthRedirect";
-import ConfirmEmail from "@privatePages/ConfirmEmail";
-import ResetPassword from "@privatePages/ResetPassword";
+import ConfirmEmail from "@privatePages/confirmEmail/ConfirmEmail";
+import ResetPassword from "@privatePages/resetPassword/ResetPassword";
 
 import { PublicRoutes, EmailRedirectsRoutes, PrivateRoutes } from "@routes/routes";
 
