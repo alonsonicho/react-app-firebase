@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // Components
-import Alert from "./Alert";
+import Alert from "@components/Alert";
 // Hooks
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../../../hooks/useAuth";
 // Firebase
 import { updateDisplayNameProfile, updateEmailProfile, updatePasswordProfile, signOff } from "@servicesAuth";
 import { PublicRoutes } from "@routes/routes";

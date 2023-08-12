@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // Components
 import Layout from "@components/Layout";
 import Spinner from "@components/Spinner";
+import Orders from "./components/Orders"
 // Hooks
 import useAuth from "../../../hooks/useAuth";
 // Firebase
@@ -59,28 +60,7 @@ const MyOrders = () => {
                 </div>
               </div>
               <div className="flex flex-col w-full border px-3 py-5">
-                {item.products.map((prod) => (
-                  <div key={prod.id} className="flex ml-3 sm:ml-5">
-                    <img src={prod.url} className="rounded-md w-28" />
-                    <div className="flex flex-col sm:flex-row w-full">
-                      <div className="flex flex-col justify-center ml-8 text-gray-800 font-semibold sm:w-3/5">
-                        <p>{prod.name}</p>
-                        <p>x{prod.quantity}</p>
-                        <p>
-                          Talla: <span>{prod.size}</span>
-                        </p>
-                        <p>S/{prod.price}</p>
-                      </div>
-                      <div className="w-full sm:w-2/5 flex items-center md:mr-10 mt-2 sm:mt-0">
-                        <div className="mx-auto">
-                          <Link to={`${PublicRoutes.PRODUCT}/${prod.id}`} className="bg-gray-800 hover:bg-gray-700 px-3 py-2 rounded-md text-white text-sm block text-center">
-                            Comprar de nuevo
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                { item.products.map((prod, index) => <Orders key={index} prod={prod}/>) }
                 <div className="flex items-center pt-3 ml-5">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
                     <path fill="#27ae60" d="M22 1041.4c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10 10 4.477 10 10z" transform="translate(0 -1028.4)"></path>

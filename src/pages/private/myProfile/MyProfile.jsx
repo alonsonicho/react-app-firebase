@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //Components
 import Layout from "@components/Layout";
-import UpdateProfileModal from "@components/UpdateProfileModal";
+import UpdateProfileModal from "./components/UpdateProfileModal";
 // Hooks
 import useAuth from "../../../hooks/useAuth";
 import { PrivateRoutes } from "@routes/routes";
