@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -7,53 +7,57 @@ import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./context/AuthProvider";
 import { CartProvider } from "./context/CartProvider";
 
-import Index from "./pages/Index";
-import ProductDetail from "./pages/ProductDetail";
-import Categories from "./pages/Categories";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import PasswordRecoverySearch from "./pages/PasswordRecoverySearch";
-import CartItems from "./pages/CartItems";
-import Error404 from "./pages/Error404";
-// Private Routes
-import PrivateRoute from "./components/PrivateRoute";
-import MyProfile from "./pages/MyProfile";
-import Checkout from "./pages/Checkout";
-import MyOrders from "./pages/MyOrders";
-import ReauthenticateUser from "./pages/ReauthenticateUser";
-// Email redirects
-import AuthRedirect from "./components/AuthRedirect";
-import ConfirmEmail from "./pages/ConfirmEmail";
-import ResetPassword from "./pages/ResetPassword";
+const Spinner = lazy(() => import("@components/Spinner"));
+const Index = lazy(() => import("@publicPages/index/Index"));
+const ProductDetail = lazy(() => import("@publicPages/productDetail/ProductDetail"));
+const Categories = lazy(() => import("@publicPages/categories/Categories"));
+const Login = lazy(() => import("@publicPages/login/Login"));
+const SignUp = lazy(() => import("@publicPages/signUp/SignUp"));
+const PasswordRecoverySearch = lazy(() => import("@publicPages/passwordRecovery/PasswordRecoverySearch"));
+const CartItems = lazy(() => import("@publicPages/cartItems/CartItems"));
+const Error404 = lazy(() => import("@publicPages/notFound/Error404"));
+
+const PrivateRoute = lazy(() => import("./guards/PrivateRoute"));
+const MyProfile = lazy(() => import("@privatePages/myProfile/MyProfile"));
+const Checkout = lazy(() => import("@privatePages/checkout/Checkout"));
+const MyOrders = lazy(() => import("@privatePages/myOrders/MyOrders"));
+const ReauthenticateUser = lazy(() => import("@privatePages/reauthenticateUser/ReauthenticateUser"));
+
+const AuthRedirect = lazy(() => import("./guards/AuthRedirect"));
+const ConfirmEmail = lazy(() => import("@privatePages/confirmEmail/ConfirmEmail"));
+const ResetPassword = lazy(() => import("@privatePages/resetPassword/ResetPassword"));
+
+
+import { PublicRoutes, EmailRedirectsRoutes, PrivateRoutes } from "@routes/routes";
 
 function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <BrowserRouter>
+        <Suspense fallback={<Spinner/>}>
           <ToastContainer transition={Slide} />
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/category/:nameCategory" element={<Categories />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/passwordRecoverySearch" element={<PasswordRecoverySearch />} />
-            <Route path="/cart" element={<CartItems />} />
-            <Route path="*" element={<Error404 />} />
+            <Route path={PublicRoutes.HOME} element={<Index />} />
+            <Route path={PublicRoutes.PRODUCT_DETAIL} element={<ProductDetail />} />
+            <Route path={PublicRoutes.CATEGORIES} element={<Categories />} />
+            <Route path={PublicRoutes.LOGIN} element={<Login />} />
+            <Route path={PublicRoutes.SIGN_UP} element={<SignUp />} />
+            <Route path={PublicRoutes.PASSWORD_RECOVERY_SEARCH} element={<PasswordRecoverySearch />} />
+            <Route path={PublicRoutes.CART_ITEMS} element={<CartItems />} />
+            <Route path={PublicRoutes.NOT_FOUND} element={<Error404 />} />
             {/* Email redirects */}
-            <Route path="/auth" element={<AuthRedirect />} />
-            <Route path="/confirm-email" element={<ConfirmEmail />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path={EmailRedirectsRoutes.AUTH_REDIRECT} element={<AuthRedirect />} />
+            <Route path={EmailRedirectsRoutes.CONFIRM_EMAIL} element={<ConfirmEmail />} />
+            <Route path={EmailRedirectsRoutes.RESET_PASSWORD} element={<ResetPassword />} />
             {/* Privates routes */}
-            <Route path="/" element={<PrivateRoute />}>
-              <Route path="profile" element={<MyProfile />} />
-              <Route path="checkout" element={<Checkout />} />
-              <Route path="orders" element={<MyOrders />} />
-              <Route path="reauth" element={<ReauthenticateUser />} />
+            <Route element={<PrivateRoute />}>
+              <Route path={PrivateRoutes.PROFILE} element={<MyProfile />} />
+              <Route path={PrivateRoutes.CHECKOUT} element={<Checkout />} />
+              <Route path={PrivateRoutes.ORDERS} element={<MyOrders />} />
+              <Route path={PrivateRoutes.REAUTHENTICATION} element={<ReauthenticateUser />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </Suspense>
       </CartProvider>
     </AuthProvider>
   );

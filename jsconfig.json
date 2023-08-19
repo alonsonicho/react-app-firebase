@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@publicPages/*": ["./src/pages/public/*"],
+            "@privatePages/*": ["./src/pages/private/*"],
+            "@components": ["./src/components/*"],
+            "@servicesAuth": ["./src/services/servicesAuth.js"],
+            "@servicesFirestore": ["./src/services/servicesFirestore.js"],
+            "@routes/*": ["./src/routes/*"],
+        }
+    }
+}

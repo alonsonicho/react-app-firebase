@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import CardItem from "../components/CardItem";
+import Layout from "@components/Layout";
+import CardItem from "@components/CardItem";
 // Firebase
-import { getDataCategories } from "../firebase/Firestore";
-import Spinner from "../components/Spinner";
+import { getDataCategories } from "@servicesFirestore";
+import Spinner from "@components/Spinner";
 
 const Categories = () => {
   const { nameCategory } = useParams();

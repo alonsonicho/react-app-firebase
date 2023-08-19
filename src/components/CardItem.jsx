@@ -1,3 +1,4 @@
+import { PublicRoutes } from "@routes/routes";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -19,7 +20,7 @@ const CardItem = ({ product }) => {
         </div>
       </div>
       <Link
-        to={`/product/${product.id}`}
+        to={`${PublicRoutes.PRODUCT}/${product.id}`}
         className="relative z-10 w-full block text-center bottom-32 bg-zinc-300 font-medium bg-opacity-75 py-2 px-4 text-gray-900 opacity-0 group-hover:opacity-100 transition-all"
       >
         Ver ahora

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import CTAs from "../components/CTAs";
-import CardItem from "../components/CardItem";
+import Layout from "@components/Layout";
+import CTAs from "@components/CTAs";
+import CardItem from "@components/CardItem";
 // Fibase
-import { getDataCollections } from "../firebase/Firestore";
-import Spinner from "../components/Spinner";
+import { getDataCollections } from "@servicesFirestore";
+import Spinner from "@components/Spinner";
 
 const Index = () => {
   const [products, setProducts] = useState([]);

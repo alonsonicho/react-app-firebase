@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
 // Firebase
-import { confirmPassword } from "../firebase/Firestore";
+import { confirmPassword } from "@servicesAuth";
+import { PublicRoutes } from "@routes/routes";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const ResetPassword = () => {
       await confirmPassword(code, new_password);
       setAlert({ msg: "Contraseña cambiada satisfactoriamente", error: false });
       setPassword("");
-      setTimeout(() => navigate("/login"), 9000);
+      setTimeout(() => navigate(PublicRoutes.LOGIN), 9000);
     } catch (error) {
       setAlert({ msg: error.code, error: true });
     }

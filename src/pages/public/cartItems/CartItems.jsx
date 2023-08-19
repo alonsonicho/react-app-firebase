@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import EmptyCart from "../components/EmptyCart";
+import Layout from "@components/Layout";
+import EmptyCart from "@components/EmptyCart";
+import Items from "./components/Items"
 // Hooks
-import useAuth from "../hooks/useAuth";
-import useCart from "../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
+import { PublicRoutes } from "@routes/routes";
 
 const CartItems = () => {
   const { auth } = useAuth();
@@ -27,7 +29,7 @@ const CartItems = () => {
         <div className="min-h-screen w-full sm:w-5/6 py-5 mx-auto">
           <div className="px-5">
             <div className="mb-2">
-              <Link to="/" className="flex items-center">
+              <Link to={PublicRoutes.HOME} className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 24 24">
                   <path fill="#fff" d="M0 0H24V24H0z"></path>
                   <path
@@ -46,53 +48,14 @@ const CartItems = () => {
           </div>
           <div className="flex flex-col md:flex-row px-6 sm:p-0">
             <div className="w-full md:h-3/4 md:mr-8">
-              {cart.map((item) => (
-                <div key={item.id} className="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6">
-                  <div className="w-full flex items-center">
-                    <div className="overflow-hidden rounded-lg w-16 h-16 bg-gray-50 border border-gray-200">
-                      <img src={item.url} alt="name" />
-                    </div>
-                    <div className="flex flex-grow flex-col pl-3">
-                      <h6 className="font-semibold uppercase text-gray-600">{item.name}</h6>
-                      <div className="flex flex-col text-gray-500 text-sm">
-                        <p> x {item.quantity}</p>
-                        <p>Precio : S/{item.price}</p>
-                        <p>Talla : {item.size}</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-center justify-center">
-                      <div className="flex items-center mb-1">
-                        <button
-                          className={`${
-                            item.quantity === 1 ? "cursor-not-allowed bg-gray-50 hover:bg-gray-50 text-gray-300" : "cursor-pointer bg-gray-100 border-solid border"
-                          } border-solid border rounded-l  py-1 px-3 transition-colors`}
-                          onClick={() => updateQuantity(item.id, false)}
-                          disabled={item.quantity === 1}
-                        >
-                          -
-                        </button>
-                        <span className="text-black text-center w-10">{item.quantity}</span>
-                        <button
-                          className={`${
-                            item.quantity === getStockProduct(item, item.size) ? "cursor-not-allowed bg-gray-50 hover:bg-gray-50 text-gray-300" : "cursor-pointer bg-gray-100 border-solid border"
-                          } border-solid border rounded-l  py-1 px-3 transition-colors`}
-                          onClick={() => updateQuantity(item.id, true)}
-                          disabled={item.quantity === getStockProduct(item, item.size)}
-                        >
-                          +
-                        </button>
-                      </div>
-                      <div className="flex items-center space-x-3">
-                        <span className="font-semibold text-gray-600 text-lg">S/ {item.subtotal}.00</span>
-                        <button onClick={() => deleteProduct(item.id)}>
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
-                            <path d="M6 18L18 6M6 6l12 12" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              {cart.map((item, index) => (
+                <Items 
+                  key={index}
+                  item={item}
+                  updateQuantity={updateQuantity}
+                  deleteProduct={deleteProduct}
+                  getStockProduct={getStockProduct}
+                />
               ))}
             </div>
             <div className="w-full md:w-1/2">

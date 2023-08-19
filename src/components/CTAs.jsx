@@ -1,3 +1,4 @@
+import { PublicRoutes } from "@routes/routes";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -29,7 +30,7 @@ const CTAs = () => {
                   <img src={item.url_img} alt={item.name} className="h-full w-full object-cover object-center rounded-lg" />
                 </div>
                 <h3 className="mt-6 text-base font-semibold capitalize">
-                  <Link to={`/category/${item.name}`} className="hover:border-b-2 border-gray-50 pb-1">
+                  <Link to={`${PublicRoutes.CATEGORIE}/${item.name}`} className="hover:border-b-2 border-gray-50 pb-1">
                     {item.name}
                   </Link>
                 </h3>

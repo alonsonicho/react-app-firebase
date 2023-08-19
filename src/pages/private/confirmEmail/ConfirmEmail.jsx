@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
 // Firebase
-import { confirmEmail } from "../firebase/Firestore";
+import { confirmEmail } from "@servicesAuth";
+import { PublicRoutes } from "@routes/routes";
 
 const ConfirmEmail = () => {
   const [searchParams] = useSearchParams();
@@ -49,7 +50,7 @@ const ConfirmEmail = () => {
           </div>
         </div>
         <div className="mt-12">
-          <Link to="/login" className="w-full px-12 py-4 tracking-wide text-white transition-colors duration-200 bg-gray-800 rounded-md hover:bg-gray-700 font-bold cursor-pointer">
+          <Link to={PublicRoutes.LOGIN} className="w-full px-12 py-4 tracking-wide text-white transition-colors duration-200 bg-gray-800 rounded-md hover:bg-gray-700 font-bold cursor-pointer">
             Iniciar Sesión
           </Link>
         </div>

@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 // Components
-import Layout from "../components/Layout";
-import Alert from "../components/Alert";
-import EmptyCart from "../components/EmptyCart";
+import Layout from "@components/Layout";
+import Alert from "@components/Alert";
+import EmptyCart from "@components/EmptyCart";
 // Hooks
-import useAuth from "../hooks/useAuth";
-import useCart from "../hooks/useCart";
+import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 // Helpers
-import { formatDate } from "../helpers/helpers";
+import { formatDate } from "../../../helpers/helpers";
 // Firebase
-import { sendOrder } from "../firebase/Firestore";
+import { sendOrder } from "@servicesFirestore";
+import { PublicRoutes } from "@routes/routes";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const Checkout = () => {
       expirationYear: "",
       CVV: "",
     });
-    navigate("/");
+    navigate(PublicRoutes.HOME);
   };
 
   return (
@@ -69,7 +70,7 @@ const Checkout = () => {
         <div className="min-h-screen w-full sm:w-4/5 py-5 mx-auto">
           <div className="px-5">
             <div className="mb-2">
-              <Link to="/cart" className="flex items-center text-gray-500 text-sm">
+              <Link to={PublicRoutes.CART_ITEMS} className="flex items-center text-gray-500 text-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="none" viewBox="0 0 24 24">
                   <path fill="#fff" d="M0 0H24V24H0z"></path>
                   <path
